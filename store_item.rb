@@ -1,14 +1,8 @@
- item_1 = {product: "shampoo", color: "clear", price: 5, available: true}
- item_2 = {product: "toilet paper", color: "white", price: 12, available: true}
- item_3 = {product: "razors", color: "blue", price: 7, available: true}
+# - Open the store_item.rb file you created from the previous lesson.
+# - Some of your store items are food, which have a shelf life. Create a class called Food which inherits from your original class and has an additional property of shelf_life.
 
 
- #item_1 = {:product => "shampoo", :color => "clear", :price => 5, :available => true}
-# item_2 = {:product => "toilet paper", :color => "white", :price => 12, :available => true}
-# item_3 = {:product => "razors", :color => "blue", :price => 7, :available => true}
-
-
-class Products
+class Product
   attr_reader :product, :color, :price, :available
   attr_writer :available
 
@@ -20,9 +14,19 @@ class Products
    end
 end
 
- product_1 = Products.new(product: "shampoo", color: "clear", price: 5, available: true)
- product_2 = Products.new(product: "toilet paper", color: "white", price: 12, available: true)
- product_3 = Products.new(product: "razors", color: "blue", price: 7, available: true)
+class Food < Product
+  attr_reader :shelf_life
+  def initialize(input_options)
+    super(input_options)
+  @shelf_life = input_options[:shelf_life]
+  end
+end
+
+ product_1 = Product.new(product: "shampoo", color: "clear", price: 5, available: true)
+ product_2 = Product.new(product: "toilet paper", color: "white", price: 12, available: true)
+ product_3 = Product.new(product: "razors", color: "blue", price: 7, available: true)
+
+ food = Food.new(product: "apple", color: "red", shelf_life: 5, price: 2, available: true)
 
 puts product_1.product
 puts product_1.color
@@ -30,4 +34,8 @@ puts product_1.price
 
 puts product_1.available 
 product_1.available = false
-puts product_1.available 
+
+p food.shelf_life
+
+
+
