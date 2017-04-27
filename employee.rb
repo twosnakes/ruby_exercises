@@ -27,19 +27,7 @@ end
 
 
 
-class Manager < Employee
 
-   def initialize (input_options)
-    super(input_options)
-    @employees = input_options[:employees]
-  end
- 
-def send_report
-  puts "Sending email..."
-  #the code to send report
-  puts "Email Sent."
- end
-end
 
 employee_1 = Employee.new(
   first_name: "Jim", 
